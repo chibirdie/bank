@@ -15,7 +15,9 @@ let name = `John Doe`;
 
 // 1. Let them know their starting balance
       // Search the document for the 'balance' element
+      let _balance = document.getElementById('balance');
       // Change the content of the element
+      _balance.innerHTML = balance;
 
 
 var completeTransaction = function() {
@@ -25,15 +27,22 @@ var completeTransaction = function() {
   let _amount = parseInt(document.getElementById('amount').value);
 
   // 1. Update the balance using the transaction value
-  balance += 50;
+  balance += _amount;
 
   // 2. Add a record to the history showing the amount deposited
-  document.getElementById('history').innerHTML += `<li>You deposited $50.</li>`;
+  document.getElementById('history').innerHTML += `<li>You deposited $${_amount}.</li>`;
 
   // Update the balance in the document
   document.getElementById('balance').innerHTML = balance;
 
   // 3. IF the balance is less than 0, make the balance red, else make it black
+        let _balance = document.getElementById('balance');
+
+        if (balance < 0) {
+          _balance.style.color = 'red';
+        } else {
+          _balance.style.color = 'black';
+        }
         // A) change the style.color of the balance
         // B) create a css class and .add() a class to the balance
 };
